@@ -10,8 +10,8 @@
       "region": "us-east-2",
       "cache": "bounded",
       "environment": {
-        "DYNAMODB_ACCESS_KEY": "AKIAZNWR25HXCDQP5AHM",
-        "DYNAMODB_SECRET_ACCESS_KEY": "TNFjmsk1a4VLezKaEbSypSChJDEKwWjosBtZLWf/"
+        "DYNAMODB_ACCESS_KEY": "<REDACTED>",
+        "DYNAMODB_SECRET_ACCESS_KEY": "<REDACTED>"
       },
       "httpApi": {
         "cors": true

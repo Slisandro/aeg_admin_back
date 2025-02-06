@@ -7,8 +7,8 @@ provider:
   runtime: nodejs16.x
   region: us-east-2
   environment:
-    DYNAMODB_ACCESS_KEY: AKIAZNWR25HXCDQP5AHM
-    DYNAMODB_SECRET_ACCESS_KEY: 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
+    DYNAMODB_ACCESS_KEY: process.env.DYNAMODB_ACCESS_KEY
+    DYNAMODB_SECRET_ACCESS_KEY: process.env.DYNAMODB_SECRET_ACCESS_KEY
   httpApi:
     cors: true
 functions:
