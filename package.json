@@ -1,0 +1,39 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "@as-integrations/aws-lambda": "^3.1.0",
+    "apollo-server-core": "^3.13.0",
+    "apollo-server-express": "^3.13.0",
+    "apollo-server-lambda": "^3.13.0",
+    "aws-sdk": "^2.1692.0",
+    "aws-serverless-express": "^3.4.0",
+    "express": "^4.21.2",
+    "graphql": "^16.10.0",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "@types/aws-serverless-express": "^3.3.10",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.0",
+    "concurrently": "^9.1.2",
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9",
+    "serverless-offline": "^14.4.0",
+    "serverless-plugin-typescript": "^2.1.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

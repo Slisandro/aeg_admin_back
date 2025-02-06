@@ -1,0 +1,28 @@
+org: slisandro
+app: aeg
+service: aeg-admin
+
+provider: 
+  name: aws
+  runtime: nodejs16.x
+  region: us-east-2
+  environment:
+    DYNAMODB_ACCESS_KEY: AKIAZNWR25HXCDQP5AHM
+    DYNAMODB_SECRET_ACCESS_KEY: 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
+  httpApi:
+    cors: true
+functions:
+  graphql:
+    handler: dist/index.handler
+    events:
+      - httpApi: 
+          path: /
+          method: POST
+      - httpApi: 
+          path: /
+          method: GET
+plugins: 
+  - serverless-offline
+custom:
+  serverless-offline: 
+    noTimeout: true
