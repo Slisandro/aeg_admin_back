@@ -1,5 +1,6 @@
 # Ignora serverless
-.serverless/
+.serverless
+serverless
 
 # Ignora dist
 dist
