@@ -2,6 +2,38 @@ const { v4 } = require("uuid");
 const dynamoDB = require("../../dynamodb/index.js");
 
 const resolversConstancy = {
+    Constancy: { // Resolvers for the Constancy type's fields
+        user: async (parent: { userId: string }) => {
+            const params = {
+                TableName: "aeg_admin",
+                Key: {
+                    'id': parent.userId
+                }
+            };
+            const user = await dynamoDB.get(params).promise();
+            return user.Item;
+        },
+        course: async (parent: { courseId: string; }) => {
+            const params = {
+                TableName: "aeg_admin",
+                Key: {
+                    'id': parent.courseId
+                }
+            };
+            const course = await dynamoDB.get(params).promise();
+            return course.Item;
+        },
+        client: async (parent: { clientId: string }) => {
+            const params = {
+                TableName: "aeg_admin",
+                Key: {
+                    'id': parent.clientId
+                }
+            };
+            const client = await dynamoDB.get(params).promise();
+            return client.Item;
+        },
+    },
     Query: {
         constanciesCount: async () => {
             const params = {
@@ -19,6 +51,23 @@ const resolversConstancy = {
             } catch (error) {
                 console.error('Error getting constancies count:', error);
                 throw new Error('Error getting constancies count.');
+            }
+        },
+        getAllConstancies: async () => {
+            const params = {
+                TableName: 'aeg_admin',
+                FilterExpression: 'entityType = :tipo',
+                ExpressionAttributeValues: {
+                    ':tipo': 'constancy'
+                }
+            };
+
+            try {
+                const data = await dynamoDB.scan(params).promise();
+                return data.Items || []; // Return the raw Constancy items
+            } catch (error) {
+                console.error('Error getting constancies', error);
+                throw new Error('Error getting constancies');
             }
         },
         getConstanciesByClient: async (root: any, args: { clientId: string }) => {
@@ -120,4 +169,4 @@ const resolversConstancy = {
 
 module.exports = resolversConstancy;
 
-export {};
+export { };
