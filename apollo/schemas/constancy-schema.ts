@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Constancy {
-    id: ID!
+    id: String!
     userId: String!
     user: User
     courseId: String!
@@ -15,14 +15,14 @@ const typeDefs = gql`
   }
 
   type Course {
-    id: ID!
+    id: String!
     name: String!
     duration: Int!
     entityType: String!
   }
 
   type Client {
-    id: ID!
+    id: String!
     name: String!
     representative: String!
     code: String!
@@ -30,7 +30,7 @@ const typeDefs = gql`
   }
 
   type User {
-    id: ID!
+    id: String!
     name: String!
     email: String!
     password: String!
@@ -41,14 +41,14 @@ const typeDefs = gql`
   type Query {
     constanciesCount: Int
     getAllConstancies: [Constancy!]
-    getConstanciesByUser(userId: ID!): [Constancy!]
-    getConstanciesByCourse(courseId: ID!): [Constancy!] 
-    getConstanciesByClient(clientId: ID!): [Constancy!]
+    getConstanciesByUser(userId: String!): [Constancy!]
+    getConstanciesByCourse(courseId: String!): [Constancy!] 
+    getConstanciesByClient(clientId: String!): [Constancy!]
   }
 
   type Mutation {
-    createOrUpdateConstancy(userId: ID!, courseId: ID!, clientId: ID!, startDate: String!, endDate: String!, entityType: String!): Boolean
-    deleteConstancy(id: ID!): Boolean
+    createOrUpdateConstancy(userId: String!, courseId: String!, clientId: String!, startDate: String!, endDate: String!, entityType: String!): Boolean
+    deleteConstancy(id: String!): Boolean
   }
 `;
 
