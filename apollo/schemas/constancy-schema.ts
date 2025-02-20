@@ -47,7 +47,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createOrUpdateConstancy(userId: String!, courseId: String!, clientId: String!, startDate: String!, endDate: String!, entityType: String!): Boolean
+    createOrUpdateConstancy(id: String, userId: String!, courseId: String!, clientId: String!, startDate: String!, endDate: String!, entityType: String!): Boolean
     deleteConstancy(id: String!): Boolean
   }
 `;
